@@ -11,7 +11,7 @@ function Categoria({ imageSrc, text }: ProdutosProps) {
 
         <div className="categoriaWrapper">
             <div className="containerCategoria">
-                <img src={imageSrc} alt={`Imagem de ${text}`} className="produtoImagem" />
+                <img src={imageSrc} alt={`Categoria ${text}`} className="produtoImagem" loading="lazy" decoding="async" />
             </div>
             <p className="categoriaTextoFora">{text}</p>
         </div>

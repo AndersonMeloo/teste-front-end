@@ -29,7 +29,7 @@ function Footer() {
 
         <div className="marcaFooter">
           <div className="logo">
-            <img src="/Logo.png" alt="Logo" />
+            <img src="/Logo.png" alt="Econverse" />
           </div>
 
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>

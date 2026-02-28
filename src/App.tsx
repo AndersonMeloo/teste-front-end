@@ -4,10 +4,9 @@ import './styles/app.scss'
 function App() {
 
   return (
-    
-    <main className="app">
+    <div className="app">
       <Home />
-    </main>
+    </div>
   )
 }
 

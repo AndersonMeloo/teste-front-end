@@ -32,6 +32,7 @@ function Produtos({ produtos, onBuy }: ProdutosProps) {
       <button
         className="carrosselBtn left"
         onClick={() => scroll("left")}
+        aria-label="Ver produtos anteriores"
       >
         &#10094;
       </button>
@@ -43,6 +44,8 @@ function Produtos({ produtos, onBuy }: ProdutosProps) {
               src={produto.photo}
               alt={produto.productName}
               className="produtoImagem"
+              loading="lazy"
+              decoding="async"
             />
 
             <h3 className="produtoNome">{produto.productName}</h3>
@@ -69,6 +72,7 @@ function Produtos({ produtos, onBuy }: ProdutosProps) {
       <button
         className="carrosselBtn right"
         onClick={() => scroll("right")}
+        aria-label="Ver próximos produtos"
       >
         &#10095;
       </button>

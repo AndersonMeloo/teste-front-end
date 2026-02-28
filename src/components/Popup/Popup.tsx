@@ -35,7 +35,9 @@ export const Popup = ({ product, onClose }: PopupProps) => {
 
             <p className="descricao-popup">{product.descriptionShort}</p>
 
-            <a href="">Veja mais detalhes do produto</a>
+            <a href={product.photo} target="_blank" rel="noopener noreferrer">
+              Veja mais detalhes do produto
+            </a>
 
             <div className="acoes-popup">
               <div className="quantidade-popup">

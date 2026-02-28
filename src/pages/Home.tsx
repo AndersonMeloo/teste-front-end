@@ -53,42 +53,58 @@ function Home() {
         <>
             <Header />
 
-            <div className="containerHomeCategorias">
-                <Categoria imageSrc="/imagensCategorias/Tecnologia.png" text="Tecnologia" />
-                <Categoria imageSrc="/imagensCategorias/SuperMercado.png" text="Supermercado" />
-                <Categoria imageSrc="/imagensCategorias/whiskey.png" text="Bebidas" />
-                <Categoria imageSrc="/imagensCategorias/ferramentas.png" text="Ferramentas" />
-                <Categoria imageSrc="/imagensCategorias/cuidados-de-saude.png" text="Saúde" />
-                <Categoria imageSrc="/imagensCategorias/corrida.png" text="Esportes e Fitness" />
-                <Categoria imageSrc="/imagensCategorias/moda.png" text="Moda" />
-            </div>
+            <main>
+                <h1 className="sr-only">Econverse - Loja online com produtos, categorias e ofertas</h1>
 
-            <div className="containerTitulo">
-                <Titulo title="Produtos Relacionados" />
-            </div>
-            <NavegacaoCategorias />
-            <Produtos produtos={produtos.slice(0, 4)} onBuy={handleBuyClick} />
-            <Parceiros />
+                <section aria-labelledby="categorias-em-destaque">
+                    <h2 id="categorias-em-destaque" className="sr-only">Categorias em destaque</h2>
+                    <div className="containerHomeCategorias">
+                        <Categoria imageSrc="/imagensCategorias/Tecnologia.png" text="Tecnologia" />
+                        <Categoria imageSrc="/imagensCategorias/SuperMercado.png" text="Supermercado" />
+                        <Categoria imageSrc="/imagensCategorias/whiskey.png" text="Bebidas" />
+                        <Categoria imageSrc="/imagensCategorias/ferramentas.png" text="Ferramentas" />
+                        <Categoria imageSrc="/imagensCategorias/cuidados-de-saude.png" text="Saúde" />
+                        <Categoria imageSrc="/imagensCategorias/corrida.png" text="Esportes e Fitness" />
+                        <Categoria imageSrc="/imagensCategorias/moda.png" text="Moda" />
+                    </div>
+                </section>
 
-            <div className="containerTitulo">
-                <Titulo title="Produtos Relacionados" />
-            </div>
-            <p className="containerTexto">Ver todos</p>
-            <Produtos produtos={produtos.slice(4, 8)} onBuy={handleBuyClick} />
-            <Parceiros />
+                <section id="produtos-relacionados-1" aria-labelledby="titulo-produtos-relacionados-1">
+                    <div className="containerTitulo" id="titulo-produtos-relacionados-1">
+                        <Titulo title="Produtos Relacionados" />
+                    </div>
+                    <NavegacaoCategorias />
+                    <Produtos produtos={produtos.slice(0, 4)} onBuy={handleBuyClick} />
+                </section>
 
-            <Marcas />
-            <div className="containerTitulo">
-                <Titulo title="Produtos Relacionados" />
-            </div>
-            <p className="containerTexto">Ver todos</p>
-            <Produtos produtos={produtos.slice(6, 10)} onBuy={handleBuyClick} />
+                <Parceiros />
 
-            {selectedProduct && (
-                <Popup product={selectedProduct} onClose={handleClosePopup} />
-            )}
+                <section id="produtos-relacionados-2" aria-labelledby="titulo-produtos-relacionados-2">
+                    <div className="containerTitulo" id="titulo-produtos-relacionados-2">
+                        <Titulo title="Produtos Relacionados" />
+                    </div>
+                    <p className="containerTexto">Ver todos</p>
+                    <Produtos produtos={produtos.slice(4, 8)} onBuy={handleBuyClick} />
+                </section>
 
-            <Footer />
+                <Parceiros />
+
+                <Marcas />
+                <section id="produtos-relacionados-3" aria-labelledby="titulo-produtos-relacionados-3">
+                    <div className="containerTitulo" id="titulo-produtos-relacionados-3">
+                        <Titulo title="Produtos Relacionados" />
+                    </div>
+                    <p className="containerTexto">Ver todos</p>
+                    <Produtos produtos={produtos.slice(6, 10)} onBuy={handleBuyClick} />
+                </section>
+
+                {selectedProduct && (
+                    <Popup product={selectedProduct} onClose={handleClosePopup} />
+                )}
+
+                <Footer />
+            </main>
+
         </>
     );
 }
