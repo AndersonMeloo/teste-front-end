@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -11,8 +13,12 @@ body {
 body,
 html {
   margin: 0;
+  overflow-x: hidden;
 }
 
+// *****
+//  CONTAINER CATEGORIAS *********
+// ******** 
 .containerHomeCategorias {
   display: flex;
   width: 80%;
@@ -31,4 +37,65 @@ html {
 .containerCategoria:first-child p {
   color: #3019B2;
   font-weight: 600;
+}
+
+// *****
+//  CONTAINER TITULO *********
+// ******** 
+.containerTitulo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3442B5;
+  font-weight: 700;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    width: 360px;
+    height: 1px;
+    background-color: #DEDEDE;
+    margin: 0 16px;
+  }
+
+  @media (max-width: 768px) {
+
+    &::before,
+    &::after {
+      width: 180px;
+    }
+  }
+
+  @media (max-width: 480px) {
+
+    &::before,
+    &::after {
+      width: 100px;
+      margin: 0 8px;
+    }
+
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 320px) {
+
+    &::before,
+    &::after {
+      width: 60px;
+      margin: 0 4px;
+    }
+
+    font-size: 1.2rem;
+  }
+}
+
+.containerTexto {
+  color: #000;
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+  text-align: center;
+  font-weight: 700;
 }
