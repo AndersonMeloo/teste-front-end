@@ -1,0 +1,61 @@
+.marcas {
+    width: 100%;
+    padding: 2rem 0;
+    text-align: center;
+
+    .marcasTitulo {
+        color: #3442B5;
+        font-weight: 700;
+        font-size: 30px;
+        margin-bottom: 2rem;
+    }
+
+    .marcasContainer {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        align-items: center;
+        align-content: center;
+    }
+
+    .marcaCard {
+        background: white;
+        width: 211px;
+        height: 211px;
+        border-radius: 50%;
+        box-shadow: 0 0 14px 2px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: .3s ease-in-out;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        img {
+
+            @media screen and (min-width: 320px) and (max-width: 770px) {
+                width: 50px;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .marcaCard {
+            width: 90px;
+            height: 90px;
+            margin-bottom: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .marcaCard {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 1rem;
+        }
+    }
+}

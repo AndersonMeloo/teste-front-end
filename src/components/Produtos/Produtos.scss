@@ -1,0 +1,152 @@
+.carrosselWrapper {
+  position: relative;
+  width: 80%;
+  margin: 2rem auto;
+  display: flex;
+  align-items: center;
+
+  .carrosselBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    color: #000;
+    border: none;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0px 7px 6px rgba(0, 0, 0, 0.2);
+
+    @media (max-width: 768px) {
+      width: 2rem;
+      height: 2rem;
+
+      &.left {
+        left: 5px;
+      }
+
+      &.right {
+        right: 5px;
+      }
+    }
+
+    &.left {
+      left: -1.2rem;
+    }
+
+    &.right {
+      right: -1.2rem;
+    }
+  }
+
+  .produtosContainer {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    justify-content: center;
+    padding: 1rem;
+
+    @media screen and (min-width: 320px) and (max-width: 1200px) {
+      gap: 1rem;
+      justify-content: flex-start;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .produtoCard {
+      flex: 0 0 250px;
+      min-height: 360px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
+      padding: 0.8rem;
+      // display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      scroll-snap-align: center;
+      transition: 0.3s;
+      line-height: 1rem;
+
+      @media (max-width: 768px) {
+        flex: 0 0 100%;
+        max-width: 100%;
+        min-height: 300px;
+      }
+
+      @media (max-width: 480px) {
+        min-height: 280px;
+      }
+
+      @media (max-width: 992px) {
+        flex: 0 0 220px;
+      }
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      .produtoImagem {
+        width: 100%;
+        height: 150px;
+        object-fit: contain;
+      }
+
+      .produtoNome {
+        font-weight: 600;
+        font-weight: 300;
+        font-size: 15px;
+      }
+
+      .precoOriginal {
+        color: #3F3F40;
+        font-weight: 400;
+        font-size: 16px;
+        text-decoration: line-through;
+      }
+
+      .precoDesconto {
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .parcelamento {
+        font-size: 12px;
+        font-weight: 400;
+      }
+
+      .freteGratis {
+        font-weight: 400;
+        margin-bottom: 0.5rem;
+        color: #3442B5;
+        font-size: 12px;
+      }
+
+      .comprarButton {
+        margin-top: auto;
+        background-color: #3442B5;
+        color: #fff;
+        border: none;
+        padding: 0.5rem 0;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        transition: 0.3s;
+        font-size: 14px;
+        text-transform: uppercase;
+        width: 100%;
+
+        &:hover {
+          background-color: #4e4eec;
+        }
+      }
+    }
+  }
+}
