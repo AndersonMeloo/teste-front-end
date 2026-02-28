@@ -1,18 +1,14 @@
 import { useRef } from "react";
+import type { Product } from "../../types/Product";
+import { formatPrice } from "../../utils/formatPrice";
 import "./Produtos.scss";
 
-type ProdutoProps = {
-  productName: string;
-  descriptionShort: string;
-  photo: string;
-  price: number;
-};
-
 type ProdutosProps = {
-  produtos: ProdutoProps[];
+  produtos: Product[];
+  onBuy: (product: Product) => void;
 };
 
-function Produtos({ produtos }: ProdutosProps) {
+function Produtos({ produtos, onBuy }: ProdutosProps) {
   
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -52,29 +48,20 @@ function Produtos({ produtos }: ProdutosProps) {
             <h3 className="produtoNome">{produto.productName}</h3>
 
             <p className="precoOriginal">
-              {(produto.price * 1.1 / 100).toLocaleString("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-              })}
+              {formatPrice(produto.price * 1.1)}
             </p>
 
-            <p className="precoDesconto">
-              {(produto.price / 100).toLocaleString("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-              })}
-            </p>
+            <p className="precoDesconto">{formatPrice(produto.price)}</p>
 
             <p className="parcelamento">
-              ou 2x de {(produto.price / 200).toLocaleString("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-              })} sem juros
+              ou 2x de {formatPrice(produto.price / 2)} sem juros
             </p>
 
             <p className="freteGratis">Frete grátis</p>
 
-            <button className="comprarButton">COMPRAR</button>
+            <button className="comprarButton" onClick={() => onBuy(produto)}>
+              COMPRAR
+            </button>
           </div>
         ))}
       </div>
