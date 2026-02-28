@@ -42,3 +42,21 @@ Além do escopo obrigatório, foram aplicadas melhorias de SEO técnico, acessib
 git clone <url-do-repositorio>
 ```
 Instale as dependências
+```bash
+npm install / npm i
+```
+
+Execute o projeto
+```bash
+npm run dev
+```
+
+O projeto estará disponível em:
+```bash
+[npm run dev](http://localhost:5173)
+```
+
+## Build para Produção
+```bash
+npm run build
+```
