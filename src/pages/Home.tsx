@@ -7,23 +7,27 @@ import NavegacaoCategorias from "../components/NavegacaoCategorias/NavegacaoCate
 import Parceiros from "../components/Parceiros/Parceiros";
 import Marcas from "../components/Marcas/Marcas";
 import Footer from "../components/Footer/Footer";
-
-type ProdutoProps = {
-    productName: string;
-    descriptionShort: string;
-    photo: string;
-    price: number;
-};
+import { Popup } from "../components/Popup/Popup";
+import type { Product } from "../types/Product";
 
 type ApiResponse = {
     success: boolean;
-    products: ProdutoProps[];
+    products: Product[];
 };
 
 function Home() {
-    const [produtos, setProdutos] = useState<ProdutoProps[]>([]);
+    const [produtos, setProdutos] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
+    const handleBuyClick = (product: Product) => {
+        setSelectedProduct(product);
+    };
+
+    const handleClosePopup = () => {
+        setSelectedProduct(null);
+    };
 
     useEffect(() => {
         fetch("/data/produtos.json")
@@ -63,14 +67,14 @@ function Home() {
                 <Titulo title="Produtos Relacionados" />
             </div>
             <NavegacaoCategorias />
-            <Produtos produtos={produtos.slice(0, 4)} />
+            <Produtos produtos={produtos.slice(0, 4)} onBuy={handleBuyClick} />
             <Parceiros />
 
             <div className="containerTitulo">
                 <Titulo title="Produtos Relacionados" />
             </div>
             <p className="containerTexto">Ver todos</p>
-            <Produtos produtos={produtos.slice(4, 8)} />
+            <Produtos produtos={produtos.slice(4, 8)} onBuy={handleBuyClick} />
             <Parceiros />
 
             <Marcas />
@@ -78,7 +82,11 @@ function Home() {
                 <Titulo title="Produtos Relacionados" />
             </div>
             <p className="containerTexto">Ver todos</p>
-            <Produtos produtos={produtos.slice(6, 10)} />
+            <Produtos produtos={produtos.slice(6, 10)} onBuy={handleBuyClick} />
+
+            {selectedProduct && (
+                <Popup product={selectedProduct} onClose={handleClosePopup} />
+            )}
 
             <Footer />
         </>
