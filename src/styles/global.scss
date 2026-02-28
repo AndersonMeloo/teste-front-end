@@ -8,6 +8,27 @@ body {
   box-sizing: border-box;
 }
 
-body, html  {
+body,
+html {
   margin: 0;
+}
+
+.containerHomeCategorias {
+  display: flex;
+  width: 80%;
+  margin: 4rem auto;
+  flex-wrap: wrap;
+  gap: 4rem;
+  justify-content: center;
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+
+.containerCategoria:first-child {
+  background-color: #F4F4F4;
+}
+
+.containerCategoria:first-child p {
+  color: #3019B2;
+  font-weight: 600;
 }
