@@ -1,32 +1,54 @@
+import { useState } from "react";
 import type { Product } from "../../types/Product";
 import { formatPrice } from "../../utils/formatPrice";
 import "./Popup.scss";
 
 interface PopupProps {
-    product: Product;
-    onClose: () => void;
+  product: Product;
+  onClose: () => void;
 }
 
 export const Popup = ({ product, onClose }: PopupProps) => {
-    return (
-        <div className="popup-overlay" onClick={onClose}>
-            <div
-                className="popup-container"
-                onClick={(e) => e.stopPropagation()}
-            >
-                <button onClick={onClose}>X</button>
+  const [quantity, setQuantity] = useState(1);
 
-                <img src={product.photo} alt={product.productName} />
+  const increase = () => setQuantity((prev) => prev + 1);
+  const decrease = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
 
-                <h2>{product.productName}</h2>
-                <p>{product.descriptionShort}</p>
+  return (
+    <div className="sobreposicao-popup" onClick={onClose}>
+      <div className="container-popup" onClick={(e) => e.stopPropagation()}>
+        <button className="botao-fechar-popup" onClick={onClose}>
+          ✕
+        </button>
 
-                <strong>
-                    {formatPrice(product.price)}
-                </strong>
+        <div className="conteudo-popup">
+          <div className="imagem-popup">
+            <img src={product.photo} alt={product.productName} />
+          </div>
 
-                <button>COMPRAR</button>
+          <div className="informacoes-popup">
+            <h2>{product.productName}</h2>
+
+            <strong className="preco-popup">
+              {formatPrice(product.price)}
+            </strong>
+
+            <p className="descricao-popup">{product.descriptionShort}</p>
+
+            <a href="">Veja mais detalhes do produto</a>
+
+            <div className="acoes-popup">
+              <div className="quantidade-popup">
+                <button onClick={decrease}>-</button>
+                <span>{quantity.toString().padStart(2, "0")}</span>
+                <button onClick={increase}>+</button>
+              </div>
+
+              <button className="botao-comprar-popup">COMPRAR</button>
             </div>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };

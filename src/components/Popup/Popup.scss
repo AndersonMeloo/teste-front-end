@@ -1,22 +1,182 @@
-.popup-overlay {
+.sobreposicao-popup {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
-
   z-index: 1000;
 }
 
-.popup-container {
+.container-popup {
   background: #fff;
-  width: 700px; 
-  border-radius: 8px;
-  padding: 24px;
+  width: 720px;
+  max-width: 95%;
+  border-radius: 10px;
+  padding: 32px;
   position: relative;
+  animation: aparecer 0.25s ease;
+}
+
+.botao-fechar-popup {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+  color: #888;
+
+  &:hover {
+    color: #000;
+  }
+}
+
+.conteudo-popup {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.imagem-popup {
+  flex: 0 0 250px;
+
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+.informacoes-popup {
+  flex: 1;
+
+  h2 {
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+}
+
+.preco-popup {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #3F3F40;
+}
+
+.descricao-popup {
+  font-size: 10px;
+  color: #9F9F9F;
+  margin-bottom: 24px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+a {
+  color: #3442B5;
+  font-size: 11px;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+}
+
+.botao-comprar-popup {
+  background: #F7CA11;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background: #ffb300;
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .container-popup {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .conteudo-popup {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .imagem-popup {
+    flex: unset;
+    width: 100%;
+    max-width: 220px;
+  }
+
+  .informacoes-popup {
+    width: 100%;
+  }
+
+  .preco-popup {
+    font-size: 20px;
+  }
+
+  .botao-comprar-popup {
+    width: 100%;
+  }
+}
+
+.acoes-popup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.quantidade-popup {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+
+  button {
+    width: 36px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    font-size: 28px;
+    transition: 0.2s;
+    color: #9F9F9F;
+    background-color: #fff;
+
+    &:last-child {
+      color: #271C47;
+    }
+  }
+
+  span {
+    width: 40px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+  }
 }
