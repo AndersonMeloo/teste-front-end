@@ -1,8 +1,3 @@
-
-# Teste Técnico – Desenvolvedor Front-End
-
-Projeto desenvolvido como parte do processo seletivo da Econverse.
-
 ## Sobre o Projeto
 
 Aplicação desenvolvida em React + TypeScript seguindo o layout proposto no Figma.
